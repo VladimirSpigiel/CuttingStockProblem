@@ -1,0 +1,21 @@
+def __cherchePlace(self, piece):
+		Y = -1
+		X = -1
+		for y in range(0, self.getHauteur()):
+			for x in range(0, self.getLongueur()):
+				if(self.getMatrice()[y][x] == 0):
+					verifieAire = 0
+					for y_possible in range(y, y + piece.getHauteur()):
+						for x_possible in range(x, x + piece.getLongueur()):
+							print y_possible, x_possible
+							if(y_possible + piece.getHauteur() <= self.getHauteur()):
+								if(x_possible + piece.getLongueur() <= self.getLongueur()): 
+									if(self.getMatrice()[y_possible][x_possible] == 0):
+										verifieAire = verifieAire + 1
+					if(verifieAire == piece.getAire()):
+						Y = y 
+						X = x
+						break
+
+		if(Y >= 0 and X >= 0 ):
+			self.__placePiece(piece, Y, X)

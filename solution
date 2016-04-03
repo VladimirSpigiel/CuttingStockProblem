@@ -1,0 +1,13 @@
+def solver(__lot, __surface, __score):
+
+	if( len(__lot.getPieces()) == 0):
+		return 
+	for i in range(0, len(__lot.getPieces())):
+
+		piece = lot.getPieces()[i]
+		lot.supprimePiece(__lot.getPieces()[i] )
+		__surface.ajoutePiece(piece)
+		print __surface
+		solver(copy.copy(__lot), copy.copy(__surface), 10)
+
+solver(copy.copy(lot), copy.copy(surface), 0)
